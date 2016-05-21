@@ -18,7 +18,11 @@ class InstanceValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'instance-validator');
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'instance-validator');
+
+        $this->publishes([
+            __DIR__ . '/../../resources/lang' => resource_path('lang/vendor/instance-validator'),
+        ]);
 
         Validator::extend('instance_of', function ($attribute, $value, $parameters, $validator)
         {
