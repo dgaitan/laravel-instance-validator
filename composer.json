@@ -1,0 +1,28 @@
+{
+    "name": "timmcleod/laravel-instance-validator",
+    "type": "library",
+    "description": "Instance Validators for Laravel 5.x",
+    "keywords": ["laravel","validation","validator"],
+    "homepage": "https://github.com/timmcleod/laravel-instance-validator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim McLeod",
+            "email": "tim@timmcleod.com",
+            "homepage": "http://timmcleod.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/pagination": "~5.2",
+        "illuminate/support": "~5.2",
+        "illuminate/validation": "~5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "TimMcLeod\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}

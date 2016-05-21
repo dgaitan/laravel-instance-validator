@@ -1,1 +1,3 @@
-# laravel-instance-validator
+## Laravel Instance Validator
+
+###### Validation for instances and collections
