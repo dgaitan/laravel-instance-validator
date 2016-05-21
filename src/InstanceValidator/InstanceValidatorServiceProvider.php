@@ -24,7 +24,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
         {
             if (count($parameters) != 1)
             {
-                throw new Exception('The \'instance_of\' validator requires a single type to be specified.');
+                throw new Exception("The 'instance_of' validator requires a single type to be specified.");
             }
 
             return $value instanceof $parameters[0];
@@ -43,7 +43,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
         {
             if (count($parameters) != 1)
             {
-                throw new Exception('The \'collection_of\' validator requires a single type to be specified.');
+                throw new Exception("The 'collection_of' validator requires a single type to be specified.");
             }
 
             $isCollection = $value instanceof Collection;
@@ -65,12 +65,12 @@ class InstanceValidatorServiceProvider extends ServiceProvider
         {
             if (count($parameters) != 1)
             {
-                throw new Exception('The \'paginator_of\' validator requires a single type to be specified.');
+                throw new Exception("The 'paginator_of' validator requires a single type to be specified.");
             }
 
             if(!$value instanceof LengthAwarePaginator)
             {
-                throw new Exception('The \'paginator_of\' validator requires a LengthAwarePaginator instance.');
+                throw new Exception("The 'paginator_of' validator requires a LengthAwarePaginator instance.");
             }
 
             $itemIsCorrectType = $value->items()[0] instanceof $parameters[0];
