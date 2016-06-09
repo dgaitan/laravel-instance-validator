@@ -51,7 +51,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
             }
 
             $isCollection = $value instanceof Collection;
-            $itemIsCorrectType = $value[0] instanceof $parameters[0];
+            $itemIsCorrectType = $value[0] instanceof $parameters[0] || (strtolower($parameters[0]) === 'string' && is_string($value[0]));
 
             return $isCollection && $itemIsCorrectType;
         });
@@ -77,7 +77,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
                 throw new Exception("The 'paginator_of' validator requires a LengthAwarePaginator instance.");
             }
 
-            $itemIsCorrectType = $value->items()[0] instanceof $parameters[0];
+            $itemIsCorrectType = $value->items()[0] instanceof $parameters[0] || (strtolower($parameters[0]) === 'string' && is_string($value->items()[0]));
 
             return $itemIsCorrectType;
         });
