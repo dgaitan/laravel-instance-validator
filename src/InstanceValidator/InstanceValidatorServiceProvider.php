@@ -36,7 +36,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
 
         Validator::replacer('instance_of', function ($message, $attribute, $rule, $parameters)
         {
-            $msg = Lang::trans('instance-validator::' . $message);
+            $msg = Lang::get('instance-validator::' . $message);
             $msg = str_replace([':attribute', ':type'], [$attribute, $parameters[0]], $msg);
             return $msg;
         });
@@ -64,7 +64,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
 
         Validator::replacer('collection_of', function ($message, $attribute, $rule, $parameters)
         {
-            $msg = Lang::trans('instance-validator::' . $message);
+            $msg = Lang::get('instance-validator::' . $message);
             $msg = str_replace([':attribute', ':type'], [$attribute, $parameters[0]], $msg);
             return $msg;
         });
@@ -92,7 +92,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
 
         Validator::replacer('paginator_of', function ($message, $attribute, $rule, $parameters)
         {
-            $msg = Lang::trans('instance-validator::' . $message);
+            $msg = Lang::get('instance-validator::' . $message);
             $msg = str_replace([':attribute', ':type'], [$attribute, $parameters[0]], $msg);
             return $msg;
         });
