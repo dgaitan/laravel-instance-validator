@@ -1,7 +1,7 @@
 {
     "name": "timmcleod/laravel-instance-validator",
     "type": "library",
-    "description": "Instance Validators for Laravel 5.x",
+    "description": "Instance Validators for Laravel 7.x",
     "keywords": ["laravel","validation","validator"],
     "homepage": "https://github.com/timmcleod/laravel-instance-validator",
     "license": "MIT",
