@@ -1,9 +1,9 @@
 {
-    "name": "timmcleod/laravel-instance-validator",
+    "name": "dgaitan/laravel-instance-validator",
     "type": "library",
     "description": "Instance Validators for Laravel 7.x",
     "keywords": ["laravel","validation","validator"],
-    "homepage": "https://github.com/timmcleod/laravel-instance-validator",
+    "homepage": "https://github.com/dgaitan/laravel-instance-validator",
     "license": "MIT",
     "authors": [
         {
@@ -11,13 +11,19 @@
             "email": "tim@timmcleod.com",
             "homepage": "http://timmcleod.com",
             "role": "Developer"
+        },
+        {
+            "name": "David Gaitan",
+            "email": "jdavid.gaitan@gmail.com",
+            "homepage": "https://dgaitan.dev",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": ">=7.3",
-        "illuminate/pagination": "^7.0",
-        "illuminate/support": "^7.0",
-        "illuminate/validation": "^7.0"
+        "illuminate/pagination": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/validation": "^8.0"
     },
     "autoload": {
         "psr-4": {
