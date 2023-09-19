@@ -1,5 +1,5 @@
 {
-    "name": "dgaitan/laravel-instance-validator",
+    "name": "dgaitan/laravel-instance-validator-up",
     "type": "library",
     "description": "Instance Validators for Laravel 7.x",
     "keywords": ["laravel","validation","validator"],
