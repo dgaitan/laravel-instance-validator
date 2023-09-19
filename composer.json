@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "TimMcLeod\\": "src"
+            "DGaitan\\": "src"
         }
     },
     "minimum-stability": "dev"

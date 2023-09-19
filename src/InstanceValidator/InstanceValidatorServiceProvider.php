@@ -1,6 +1,6 @@
 <?php
 
-namespace TimMcLeod\InstanceValidator;
+namespace DGaitan\InstanceValidator;
 
 use Exception;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -9,33 +9,28 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 
-class InstanceValidatorServiceProvider extends ServiceProvider
-{
+class InstanceValidatorServiceProvider extends ServiceProvider {
     /**
      * Bootstrap the application services.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'instance-validator');
 
         $this->publishes([
             __DIR__ . '/../../resources/lang' => resource_path('lang/vendor/instance-validator'),
         ]);
 
-        Validator::extend('instance_of', function ($attribute, $value, $parameters, $validator)
-        {
-            if (count($parameters) != 1)
-            {
+        Validator::extend('instance_of', function ($attribute, $value, $parameters, $validator) {
+            if (count($parameters) != 1) {
                 throw new Exception("The 'instance_of' validator requires a single type to be specified.");
             }
 
             return $value instanceof $parameters[0];
         });
 
-        Validator::replacer('instance_of', function ($message, $attribute, $rule, $parameters)
-        {
+        Validator::replacer('instance_of', function ($message, $attribute, $rule, $parameters) {
             $msg = Lang::get('instance-validator::' . $message);
             $msg = str_replace([':attribute', ':type'], [$attribute, $parameters[0]], $msg);
             return $msg;
@@ -43,15 +38,12 @@ class InstanceValidatorServiceProvider extends ServiceProvider
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        Validator::extend('collection_of', function ($attribute, $value, $parameters, $validator)
-        {
-            if (count($parameters) != 1)
-            {
+        Validator::extend('collection_of', function ($attribute, $value, $parameters, $validator) {
+            if (count($parameters) != 1) {
                 throw new Exception("The 'collection_of' validator requires a single type to be specified.");
             }
 
-            if(!$value instanceof Collection)
-            {
+            if (!$value instanceof Collection) {
                 throw new Exception("The 'collection_of' validator requires a Collection instance.");
             }
 
@@ -62,8 +54,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
             return $itemIsCorrectType;
         });
 
-        Validator::replacer('collection_of', function ($message, $attribute, $rule, $parameters)
-        {
+        Validator::replacer('collection_of', function ($message, $attribute, $rule, $parameters) {
             $msg = Lang::get('instance-validator::' . $message);
             $msg = str_replace([':attribute', ':type'], [$attribute, $parameters[0]], $msg);
             return $msg;
@@ -71,15 +62,12 @@ class InstanceValidatorServiceProvider extends ServiceProvider
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        Validator::extend('paginator_of', function ($attribute, $value, $parameters, $validator)
-        {
-            if (count($parameters) != 1)
-            {
+        Validator::extend('paginator_of', function ($attribute, $value, $parameters, $validator) {
+            if (count($parameters) != 1) {
                 throw new Exception("The 'paginator_of' validator requires a single type to be specified.");
             }
 
-            if(!$value instanceof LengthAwarePaginator)
-            {
+            if (!$value instanceof LengthAwarePaginator) {
                 throw new Exception("The 'paginator_of' validator requires a LengthAwarePaginator instance.");
             }
 
@@ -90,8 +78,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
             return $itemIsCorrectType;
         });
 
-        Validator::replacer('paginator_of', function ($message, $attribute, $rule, $parameters)
-        {
+        Validator::replacer('paginator_of', function ($message, $attribute, $rule, $parameters) {
             $msg = Lang::get('instance-validator::' . $message);
             $msg = str_replace([':attribute', ':type'], [$attribute, $parameters[0]], $msg);
             return $msg;
@@ -103,8 +90,7 @@ class InstanceValidatorServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         //
     }
 }
